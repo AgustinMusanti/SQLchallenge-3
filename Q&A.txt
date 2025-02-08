@@ -1,0 +1,145 @@
+1. ¿Qué es SQL?
+Son las siglas de Structured Query Language. Es un lenguaje de programación utilizado para interactuar con sistemas
+de gestión de bases de datos relacionales (RDBMS). 
+Esto incluye obtener, actualizar, insertar y eliminar datos de las tablas.
+
+
+2. ¿Qué son los dialectos SQL? Pon algunos ejemplos.
+Las distintas versiones de SQL, tanto gratuitas como de pago, también se denominan dialectos SQL. Todas las versiones de
+SQL tienen una sintaxis muy similar y varían muy poco en funcionalidad adicional. Algunos ejemplos son Microsoft SQL Server,
+PostgreSQL, MySQL, SQLite, T-SQL, Oracle y MongoDB.
+
+
+3. ¿Cuáles son las principales aplicaciones de SQL?
+Utilizando SQL, podemos:
+- Crear, eliminar y actualizar tablas en una base de datos
+- Acceder a los datos de una tabla, manipularlos y modificarlos
+- Recuperar y resumir la información necesaria de una tabla o varias tablas
+- añadir o eliminar determinadas filas o columnas de una tabla
+
+En definitiva, SQL permite consultar una base de datos de varias formas. Además, SQL se integra fácilmente con otros
+lenguajes de programación, como Python o R, por lo que podemos utilizar su potencia combinada.
+
+
+4. ¿Qué es una sentencia SQL? Pon algunos ejemplos.
+También se llama comando SQL. Es una cadena de caracteres interpretada por el motor SQL como un comando legal y
+ejecutada en consecuencia. Algunos ejemplos de sentencias SQL son SELECT, CREATE, DELETE, DROP, REVOKE, etc.
+
+
+5. ¿Qué tipos de comandos SQL (o subconjuntos de SQL) conoces?
+
+- Lenguaje de definición de datos (DDL): para definir y modificar la estructura de una base de datos.
+- Lenguaje de manipulación de datos (LMD): para acceder a los datos de una base de datos, manipularlos y modificarlos.
+- Lenguaje de control de datos (DCL): para controlar el acceso de los usuarios a los datos de la base de datos
+  y concedero revocar privilegios a un usuario concreto o a un grupo de usuarios.
+- Lenguaje de control de transacciones (TCL): para controlar las transacciones en una base de datos.
+- Lenguaje de consulta de datos (DQL): para realizar consultas sobre los datos de una base de datos y recuperar de
+  ella la información necesaria.
+
+
+6. Pon algunos ejemplos de comandos SQL comunes de cada tipo.
+
+DDL: CREATE, ALTER TABLE, DROP, TRUNCATE y ADD COLUMN
+DML: UPDATE, DELETE e INSERT
+DCL: GRANT y REVOKE
+TCL: COMMIT, SET TRANSACTION, ROLLBACK y SAVEPOINT
+DQL: – SELECT
+
+
+7. ¿Qué es una base de datos?
+Un espacio de almacenamiento estructurado en el que los datos se guardan en muchas tablas y se organizan de forma que la
+información necesaria pueda obtenerse, manipularse y resumirse fácilmente.
+
+
+8. ¿Qué es un DBMS y qué tipos de DBMS conoces?
+Son las siglas en inglés de sistema de gestión de bases de datos, paquetes de software utilizados para realizar diversas 
+operaciones con los datos almacenados en una base de datos, como acceder a ellos, actualizarlos, manipularlos, insertarlos
+y eliminarlos. Existen diferentes tipos de DBMS, como los relacionales, jerárquicos, de red, de grafos u orientados
+a objetos. Estos tipos se basan en la forma en que se organizan, estructuran y almacenan los datos en el sistema.
+
+
+9. ¿Qué es RDBMS? Pon algunos ejemplos de RDBMS.
+Es la sigla en inglés de sistema de gestión de bases de datos relacionales. Es el tipo de DBMS más utilizado para trabajar
+con datos almacenados en varias tablas relacionadas entre sí mediante claves compartidas. El lenguaje de programación SQL
+está especialmente diseñado para interactuar con RDBMS. Algunos ejemplos de RDBMS son MySQL, PostgreSQL,
+Oracle, MariaDB, etc.
+
+
+10. ¿Qué son las tablas y los campos en SQL?
+Una tabla es un conjunto organizado de datos relacionados almacenados de forma tabular, es decir, en filas y columnas.
+Un campo es otro término para una columna de una tabla.
+
+
+11. ¿Qué es una consulta SQL y qué tipos de consultas conoces?
+Una consulta es un fragmento de código escrito en SQL para acceder a los datos de una base de datos o para modificarlos.
+En consecuencia, hay dos tipos de consultas SQL: consultas select y action. Las primeras se utilizan para recuperar
+los datos necesarios (esto también incluye limitar, agrupar, ordenar los datos; extraer los datos de varias tablas; etc.),
+y las segundas se utilizan para crear, añadir, eliminar, actualizar, renombrar los datos, etc.
+
+
+12. ¿Qué es una subconsulta?
+También llamada consulta interna; una consulta colocada dentro de otra consulta, o una consulta externa. Una subconsulta
+puede aparecer en cláusulas como SELECT, FROM, WHERE, UPDATE, etc. También es posible tener una subconsulta dentro de
+otra subconsulta. La subconsulta más interna se ejecuta primero, y su resultado se pasa a la consulta (o subconsulta)
+que la contiene.
+Se utiliza para:
+
+✅ Filtrar datos: Permite usar el resultado de una consulta como condición en otra.
+✅ Cálculos intermedios: Permite calcular valores que luego se usan en la consulta principal.
+✅ Mejor organización: Simplifica consultas complejas dividiéndolas en partes más manejables.
+
+
+13. ¿Qué tipos de subconsultas SQL conoces?
+
+- Una sola fila: devuelve como máximo una fila.
+- Varias filas:- devuelve al menos dos filas.
+- Varias columnas:- devuelve al menos dos columnas.
+- Correlacionada: una subconsulta relacionada con la información de la consulta externa.
+- Anidada:- una subconsulta dentro de otra subconsulta.
+
+
+14. ¿Qué es una restricción y por qué utilizar restricciones?
+Un conjunto de condiciones que definen el tipo de datos que pueden introducirse en cada columna de una tabla.
+Las restricciones garantizan la integridad de los datos de una tabla y bloquean acciones no deseadas.
+
+
+15. ¿Qué restricciones SQL conoces?
+
+DEFAULT: proporciona un valor por defecto para una columna.
+UNIQUE: solo permite valores únicos.
+NOT NULL: solo permite valores no nulos.
+PRIMARY KEY: solo permite valores únicos y estrictamente no nulos (NOT NULL y UNIQUE).
+FOREIGN KEY: proporciona claves compartidas entre dos y más tablas.
+
+
+16. ¿Qué es una unión?
+Una cláusula utilizada para combinar y recuperar registros de dos o más tablas. Las tablas SQL se pueden unir
+basándose en la relación entre las columnas de esas tablas.
+
+
+17. ¿Qué tipos de uniones conoces?
+
+(INNER) JOIN: devuelve solo los registros que cumplen una condición de unión definida en ambas tablas (o en todas).
+              Es una unión SQL por defecto.
+
+LEFT (OUTER) JOIN: devuelve todos los registros de la tabla izquierda y aquellos registros de la tabla derecha que
+                   cumplan una condición de unión definida.
+
+RIGHT (OUTER) JOIN: devuelve todos los registros de la tabla derecha y aquellos registros de la tabla izquierda que
+                    cumplan una condición de unión definida.
+
+FULL (OUTER) JOIN: devuelve todos los registros de ambas tablas (o de todas). Puede considerarse como una combinación
+                   de las uniones izquierda y derecha.
+
+
+18. ¿Qué es una clave primaria?
+Una columna (o varias columnas) de una tabla a la que se le ha impuesto la restricción PRIMARY KEY para garantizar
+valores únicos y no nulos en esa columna. En otras palabras, una clave primaria es una combinación de las
+restricciones NOT NULL y UNIQUE. La clave primaria identifica de forma única cada registro de la tabla.
+Cada tabla debe contener una clave primaria y no puede contener más de una clave primaria.
+
+
+19. ¿Qué es una clave única?
+Una columna (o varias columnas) de una tabla a la que se le ha impuesto la restricción UNIQUE para garantizar valores
+únicos en esa columna, incluido un posible valor NULL (el único).
+
