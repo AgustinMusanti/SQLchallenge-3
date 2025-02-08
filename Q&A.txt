@@ -143,3 +143,243 @@ Cada tabla debe contener una clave primaria y no puede contener más de una clav
 Una columna (o varias columnas) de una tabla a la que se le ha impuesto la restricción UNIQUE para garantizar valores
 únicos en esa columna, incluido un posible valor NULL (el único).
 
+
+20. ¿Qué es una clave foránea?
+Una columna (o varias columnas) de una tabla a la que se le ha impuesto la restricción FOREIGN KEY para vincular esta columna a la clave primaria de otra tabla (o varias tablas). La finalidad de las claves foráneas es mantener conectadas diferentes tablas de una base de datos.
+
+
+21. ¿Qué es un índice?
+Una estructura de datos especial relacionada con una tabla de base de datos y utilizada para almacenar sus partes importantes y permitir una búsqueda y recuperación de datos más rápidas. Los índices son especialmente eficientes para las grandes bases de datos, donde mejoran significativamente el rendimiento de las consultas.
+
+
+22. ¿Qué tipos de índices conoces?
+
+Índice único: no permite duplicados en una columna de la tabla y, por tanto, ayuda a mantener la integridad de los datos.
+
+Índice agrupado: define el orden físico de los registros de una tabla de base de datos y realiza la búsqueda de datos basándose en los valores clave. Una tabla solo puede tener un índice agrupado.
+
+Índice no agrupado: mantiene el orden de los registros de la tabla que no coincide con el orden físico de los datos reales en el disco. Significa que los datos se almacenan en un lugar y un índice no agrupado, en otro. Una tabla puede tener varios índices no agrupados.
+
+
+23. ¿Qué es un esquema?
+Un conjunto de elementos estructurales de una base de datos, como tablas, procedimientos almacenados, índices, funciones y disparadores. Muestra la arquitectura general de la base de datos, especifica las relaciones entre los distintos objetos de una base de datos y define distintos permisos de acceso para ellos.
+
+
+24. ¿Qué es un comentario SQL?
+Una aclaración legible por humanos sobre lo que hace un determinado fragmento de código. Los comentarios del código SQL pueden ser de una sola línea (precedidos de un guion doble -- ) o abarcar varias líneas (como en /*comment_text*/). Cuando el motor SQL se ejecuta, ignora los comentarios del código. La finalidad de añadir comentarios del código SQL es hacer que el código sea más completo para las personas que lo lean en el futuro.
+
+
+25. ¿Qué es un operador SQL?
+Un carácter reservado, una combinación de caracteres o una palabra clave utilizados en las consultas SQL para realizar una operación concreta. Los operadores SQL se suelen utilizar con la cláusula WHERE para establecer una condición (o condiciones) para filtrar los datos.
+
+
+26. ¿Qué tipos de operadores SQL conoces?
+
+- Aritméticos (+, -, *, /, etc.)
+- De comparación (>, <, =, >=, etc.)
+- Compuestos (+=, -=, *=, /=, etc.)
+- Lógicos (AND, OR, NOT, BETWEEN, etc.)
+- De cadena (%, _, +, ^, etc.)
+- De conjuntos (UNION, UNION ALL, INTERSECT y MINUS [o EXCEPT])
+
+
+27. ¿Qué es un alias?
+Un nombre temporal que se da a una tabla (o a una columna de una tabla) al ejecutar una determinada consulta SQL. Los alias se utilizan para mejorar la legibilidad del código y hacerlo más compacto. Un alias se introduce con la palabra clave AS.
+
+
+28. ¿Qué es una cláusula?
+Una condición impuesta a una consulta SQL para filtrar los datos y obtener el resultado deseado. Algunos ejemplos son WHERE, LIMIT, HAVING, LIKE, AND, OR, ORDER BY, etc.
+
+
+29. ¿Cuáles son algunas sentencias comunes utilizadas con la consulta SELECT?
+Las más comunes son FROM, GROUP BY, JOIN, WHERE, ORDER BY, LIMIT y HAVING.
+
+
+30. ¿Cómo crear una tabla?
+Utilizando la sentencia CREATE TABLE. Por ejemplo, para crear una tabla con tres columnas de tipos de datos predefinidos, aplicamos la siguiente sintaxis:
+
+CREATE TABLE table_name (col_1 datatype,
+                         col_2 datatype,
+                         col_3 datatype);
+
+
+31. ¿Cómo actualizar una tabla?
+Utilizando la sentencia UPDATE. La sintaxis es:
+
+UPDATE table_name
+SET col_1 = value_1, column_2 = value_2
+WHERE condition;
+
+
+32. ¿Cómo eliminar una tabla de una base de datos?
+Utilizando la sentencia DROP TABLE. La sintaxis es: 
+
+DROP TABLE table_name;.
+
+
+33. ¿Cómo obtener el recuento de registros de una tabla?
+Utilizando la función de agregación COUNT() con el asterisco como argumento: 
+
+SELECT COUNT(*) FROM table_name;.
+
+
+34. ¿Cómo ordenar los registros de una tabla?
+Utilizando la sentencia ORDER BY:
+
+SELECT * FROM table_name
+ORDER BY col_1;
+
+También podemos especificar que necesitamos un orden descendente utilizando la palabra clave DESC; de lo contrario, el orden será ascendente por defecto. Además, podemos ordenar por más de una columna y especificar para cada una orden ascendente o descendente por separado. Por ejemplo:
+
+SELECT * FROM table_name
+ORDER BY col_1 DESC, col_3, col_6 DESC;
+
+
+35. ¿Cómo seleccionar todas las columnas de una tabla?
+Utilizando el asterisco * con la sentencia SELECT. La sintaxis es: 
+
+SELECT * FROM table_name;.
+
+
+36. ¿Cómo seleccionar registros comunes de dos tablas?
+
+Using the INTERSECT statement:
+SELECT * FROM table_1
+INTERSECT
+SELECT * FROM table_1;
+
+
+37. ¿Qué es la sentencia DISTINCT y cómo se utiliza?
+Esta sentencia se utiliza con la sentencia SELECT para filtrar duplicados y devolver solo valores únicos de una columna de una tabla. La sintaxis es:
+
+SELECT DISTINCT col_1
+FROM table_name;
+
+
+38. ¿Qué son las entidades? Pon algunos ejemplos.
+Una entidad es un objeto, criatura, lugar o fenómeno del mundo real cuyos datos pueden recopilarse y almacenarse en una tabla de la base de datos. Cada entidad corresponde a una fila de una tabla, mientras que las columnas de la tabla describen sus propiedades. Algunos ejemplos de entidades son las transacciones bancarias, los alumnos de una escuela, los coches vendidos, etc.
+
+
+39. ¿Qué son las relaciones? Pon algunos ejemplos.
+Las relaciones son las conexiones y correlaciones entre entidades, lo que significa básicamente cómo se relacionan entre sí dos o más tablas de una base de datos. Por ejemplo, podemos encontrar un ID del mismo cliente en una tabla de datos de ventas y en una tabla de clientes.
+
+
+40. ¿Qué es el valor NULL? ¿En qué se diferencia del cero o de un espacio en blanco?
+Un valor NULL indica la ausencia de datos para una determinada celda de una tabla. En cambio, cero es un valor numérico válido, y una cadena vacía es una cadena legal de longitud cero.
+
+
+41. ¿Qué es una función en SQL y por qué utilizar funciones?
+Un objeto de base de datos que representa un conjunto de sentencias SQL utilizadas frecuentemente para una determinada tarea. Una función toma algunos parámetros de entrada, realiza cálculos u otras manipulaciones con ellos y devuelve el resultado. Las funciones ayudan a mejorar la legibilidad del código y evitan la repetición de los mismos fragmentos de código.
+
+
+42. ¿Qué tipos de funciones SQL conoces?
+
+Funciones de agregación: trabajan sobre varios registros, normalmente agrupados, de las columnas proporcionadas de una tabla, y devuelven un único valor (normalmente por grupo).
+
+Funciones escalares: trabajan sobre cada valor individual y devuelven un único valor.
+
+Por otra parte, las funciones SQL pueden ser integradas (definidas por el sistema) o definidas por el usuario (creadas por el usuario para sus necesidades específicas).
+
+
+43. ¿Qué funciones de agregación conoces?
+
+AVG():- devuelve el valor medio
+SUM(): devuelve la suma de los valores
+MIN(): devuelve el valor mínimo
+MAX(): devuelve el valor máximo
+COUNT(): devuelve el número de filas, incluidas las que tienen valores nulos
+FIRST(): devuelve el primer valor de una columna
+LAST(): devuelve el último valor de una columna
+
+
+44. ¿Qué funciones escalares conoces?
+
+LEN() (en otras versiones de SQL, LENGTH()): devuelve la longitud de una cadena, incluidos los espacios en blanco
+UCASE() (en otras versiones de SQL, UPPER()): devuelve una cadena convertida a mayúsculas
+LCASE() (en otras versiones de SQL, LOWER()): devuelve una cadena convertida a minúsculas
+INITCAP(): devuelve una cadena convertida a tipo título (es decir, cada palabra de la cadena empieza por mayúscula)
+MID() (en otras versiones de SQL, SUBSTR()): extrae una subcadena de una cadena
+ROUND(): devuelve el valor numérico redondeado a un número especificado de decimales
+NOW(): devuelve la fecha y hora actuales
+
+
+45. ¿Qué son las funciones de manipulación de mayúscula/minúscula? Pon algunos ejemplos.
+Las funciones de manipulación de mayúscula/minúscula son un subconjunto de las funciones de carácter, y se utilizan para cambiar entre mayúsculas y minúsculas los datos de texto. Con estas funciones, podemos convertir los datos en mayúsculas, minúsculas o tipo título.
+
+UCASE() (en otras versiones de SQL, UPPER()): devuelve una cadena convertida a mayúsculas
+LCASE() (en otras versiones de SQL, LOWER()): devuelve una cadena convertida a minúsculas
+INITCAP(): devuelve una cadena convertida a tipo título (es decir, cada palabra de la cadena empieza por mayúscula)
+
+
+46. ¿Qué son las funciones de manipulación de caracteres? Pon algunos ejemplos.
+Las funciones de manipulación de caracteres son un subconjunto de las funciones de carácter, y se utilizan para modificar los datos de texto.
+
+CONCAT(): une dos o más valores de cadena añadiendo la segunda cadena al final de la primera
+SUBSTR(): devuelve una parte de una cadena que satisface los puntos inicial y final proporcionados
+LENGTH() (en otras versiones de SQL, LEN()): devuelve la longitud de una cadena, incluidos los espacios en blanco
+REPLACE(): sustituye por otra subcadena todas las apariciones de una subcadena definida en una cadena proporcionada
+INSTR(): devuelve la posición numérica de una subcadena definida en una cadena proporcionada
+LPAD() y RPAD(): devuelven el relleno del carácter lado izquierdo/lado derecho para el valor justificado a la derecha/justificado a la izquierda
+TRIM(): elimina todos los caracteres definidos, así como los espacios en blanco, de los extremos izquierdo, derecho o ambos de una cadena proporcionada
+
+
+47. ¿Cuál es la diferencia entre variables locales y globales?
+A las variables locales solo se puede acceder dentro de la función en la que se declararon. En cambio, las variables globales, declaradas fuera de cualquier función, se almacenan en estructuras de memoria fijas y pueden utilizarse en todo el programa.
+
+
+48. ¿Cuál es la ordenación de datos por defecto con la sentencia ORDER BY y cómo se cambia?
+Por defecto, el orden es ascendente. Para cambiarlo a descendente, tenemos que añadir la palabra clave DESC como se indica a continuación:
+
+SELECT * FROM table_name
+ORDER BY col_1 DESC;
+
+
+49. ¿Qué operadores de conjuntos conoces?
+
+UNION: devuelve los registros obtenidos por al menos una de dos consultas (excluyendo los duplicados)
+UNION ALL: devuelve los registros obtenidos mediante al menos una de dos consultas (incluyendo los duplicados)
+INTERSECT: devuelve los registros obtenidos por ambas consultas
+EXCEPT (llamado MINUS en MySQL y Oracle): devuelve solo los registros obtenidos por la primera consulta, pero no la segunda
+
+
+50. ¿Qué operador se utiliza en la consulta para la concordancia de patrones?
+El operador LIKE en combinación con los comodines % y _. El comodín % representa cualquier número de caracteres, incluido cero, y _ estrictamente un carácter.
+
+
+51. ¿Cuál es la diferencia entre una clave primaria y una clave única?
+Aunque ambos tipos de claves garantizan valores únicos en una columna de una tabla, la primera identifica de forma única cada registro de la tabla y la segunda impide los duplicados en esa columna.
+
+
+52. ¿Qué es una clave primaria compuesta?
+La clave primaria de una tabla, basada en varias columnas.
+
+
+53. ¿Cuál es el orden de aparición de las sentencias comunes en la consulta SELECT?
+
+SELECT – FROM – JOIN – ON – WHERE – GROUP BY – HAVING – ORDER BY – LIMIT
+
+
+54. ¿En qué orden ejecuta el intérprete las sentencias comunes de la consulta SELECT?
+
+FROM – JOIN – ON – WHERE – GROUP BY – HAVING – SELECT – ORDER BY – LIMIT
+
+
+55. ¿Qué es una vista y por qué utilizarla?
+Una tabla virtual que contiene un subconjunto de datos recuperados de una o más tablas de la base de datos (u otras vistas). Las vistas ocupan muy poco espacio, simplifican las consultas complejas, limitan el acceso a los datos por motivos de seguridad, permiten la independencia de los datos y resumen los datos de varias tablas.
+
+
+56. ¿Podemos crear una vista basada en otra vista?
+Sí. Se llaman vistas anidadas. Sin embargo, debemos evitar anidar varias vistas, ya que el código se vuelve difícil de leer y depurar.
+
+
+57. ¿Podemos seguir utilizando una vista si se elimina la tabla original?
+No. Cualquier vista basada en esa tabla quedará invalidada tras eliminar la tabla base. Si de todos modos intentamos utilizar esa vista, recibiremos un mensaje de error.
+
+
+
+
+
+
+
+
+
