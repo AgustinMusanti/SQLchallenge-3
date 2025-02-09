@@ -376,6 +376,171 @@ Sí. Se llaman vistas anidadas. Sin embargo, debemos evitar anidar varias vistas
 No. Cualquier vista basada en esa tabla quedará invalidada tras eliminar la tabla base. Si de todos modos intentamos utilizar esa vista, recibiremos un mensaje de error.
 
 
+58. ¿Qué tipos de relaciones SQL conoces?
+
+De uno a uno: cada registro de una tabla corresponde a un único registro de otra tabla
+
+De uno a muchos: cada registro de una tabla corresponde a varios registros de otra tabla
+
+De muchos a muchos: cada registro de ambas tablas corresponde a varios registros de otra tabla
+
+
+59. ¿Cuáles son los valores posibles de un campo de datos BOOLEAN?
+En algunas versiones de SQL, como PostgreSQL, el tipo de datos BOOLEAN existe explícitamente y adopta los valores TRUE, FALSE o NULL. En otras versiones, como Microsoft SQL Server, el tipo de datos BIT se usa para almacenar valores booleanos como enteros 1 (true) o 0 (false).
+
+
+60. ¿Qué es la normalización en SQL y por qué utilizarla?
+La normalización es un proceso de diseño de bases de datos que incluye la organización y reestructuración de los datos de forma que se reduzca su redundancia, dependencia, duplicación e incoherencia. Esto conduce a una mayor integridad de los datos, más tablas dentro de la base de datos, un acceso a los datos y un control de la seguridad más eficientes y una mayor flexibilidad en las consultas.
+
+
+61. ¿Qué es la desnormalización en SQL y por qué utilizarla?
+La desnormalización es el proceso opuesto a la normalización: introduce redundancia de datos y combina datos de varias tablas. La desnormalización optimiza el rendimiento de la infraestructura de la base de datos en situaciones en las que las operaciones de lectura son más importantes que las de escritura, ya que ayuda a evitar uniones complejas y reduce el tiempo de ejecución de las consultas.
+
+
+62. ¿Qué diferencia hay entre renombrar una columna y darle un alias?
+Renombrar una columna significa cambiar permanentemente su nombre real en la tabla original. Dar un alias a una columna significa darle un nombre temporal mientras se ejecuta una consulta SQL, con el fin de hacer el código más legible y compacto.
+
+
+63. ¿Cuál es la diferencia entre subconsultas anidadas y correlacionadas?
+Una subconsulta correlacionada es una consulta interna anidada en una consulta mayor (externa) que hace referencia a los valores de la consulta externa para su ejecución, lo que significa que una subconsulta correlacionada depende de su consulta externa. En cambio, una subconsulta no correlacionada no depende de los datos de la consulta externa y puede ejecutarse independientemente de ella.
+
+
+64. ¿Cuál es la diferencia entre índices agrupados y no agrupados?
+Mientras que un índice agrupado define el orden físico de los registros de una tabla y realiza la búsqueda de datos basándose en los valores clave, un índice no agrupado mantiene el orden de los registros que no coincide con el orden físico de los datos reales en el disco. Una tabla puede tener solo un índice agrupado, pero muchos no agrupados.
+
+
+65. ¿Qué es la función CASE() ?
+La forma de implementar la lógica if-then-else en SQL. Esta función comprueba secuencialmente las condiciones proporcionadas en las cláusulas WHEN y devuelve el valor de la cláusula THEN correspondiente cuando se cumple la primera condición. Si no se cumple ninguna de las condiciones, la función devuelve el valor de la cláusula ELSE en caso de que se proporcione; de lo contrario, devuelve NULL. La sintaxis es:
+
+CASE
+    WHEN condition_1 THEN value_1
+    WHEN condition_2 THEN value_2
+    WHEN condition_3 THEN value_3
+    ...
+    ELSE value
+END;
+
+
+66. ¿Cuál es la diferencia entre las sentencias DELETE y TRUNCATE ?
+DELETE es un comando de lenguaje de manipulación de datos (DML) reversible que se utiliza para eliminar una o más filas de una tabla en función de las condiciones especificadas en la cláusula WHERE. En cambio, TRUNCATE es un comando de lenguaje de definición de datos (DDL) irreversible que se utiliza para eliminar todas las filas de una tabla. DELETE funciona más lentamente que TRUNCATE. Además, no podemos utilizar la sentencia TRUNCATE para una tabla que contenga una clave foránea.
+
+
+67. ¿Cuál es la diferencia entre las sentencias DROP y TRUNCATE ?
+DROP borra completamente una tabla de la base de datos, incluida la estructura de la tabla y todas las restricciones asociadas, las relaciones con otras tablas y los privilegios de acceso. TRUNCATE borra todas las filas de una tabla sin afectar a la estructura de la tabla ni a las restricciones. DROP funciona más lentamente que TRUNCATE. Ambos son comandos de lenguaje de definición de datos (DDL) irreversibles.
+
+
+68. ¿Cuál es la diferencia entre las sentencias HAVING y WHERE?
+La primera trabaja sobre datos agregados después de agruparlos, mientras que la segunda comprueba cada fila individualmente. Si ambas sentencias están presentes en una consulta, aparecen en el siguiente orden: WHERE – GROUP BY – HAVING. El motor SQL las interpreta también en el mismo orden.
+
+
+69. ¿Cómo se añade un registro a una tabla?
+Utilizando la sentencia INSERT INTO en combinación con VALUES. La sintaxis es:
+
+INSERT INTO table_name
+VALUES (value_1, value_2, ...);
+
+
+70. ¿Cómo eliminar un registro de una tabla?
+Utilizando la sentencia DELETE. La sintaxis es:
+
+DELETE FROM table_name
+WHERE condition;
+
+De este modo, también podemos eliminar varios registros si cumplen la condición establecida.
+
+
+71. ¿Cómo añadir una columna a una tabla?
+Utilizando la sentencia ALTER TABLE en combinación con ADD. La sintaxis es:
+
+ALTER TABLE table_name
+ADD column_name datatype;
+
+
+72. ¿Cómo renombrar una columna de una tabla?
+Utilizando la declaración ALTER TABLE en combinación con RENAME COLUMN ... TO ... La sintaxis es:
+
+ALTER TABLE table_name
+RENAME COLUMN old_column_name TO new_column_name;
+
+
+73. ¿Cómo eliminar una columna de una tabla?
+Utilizando la sentencia ALTER TABLE en combinación con DROP COLUMN. La sintaxis es:
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+
+74. ¿Cómo seleccionar todos los registros pares o todos los registros impares de una tabla?
+Comprobando el resto de la división entre 2. En algunas versiones de SQL (por ejemplo, PostgreSQL y My SQL), utilizamos la función MOD, en las demás (Microsoft SQL Server y SQLite). el operador módulo (%). Para seleccionar todos los registros pares utilizando MOD:
+
+SELECT * FROM table_name
+WHERE MOD(ID_column, 2) = 0;
+
+Para seleccionar todos los registros pares utilizando %:
+
+SELECT * FROM table_name 
+WHERE ID_column % 2 = 0;
+
+Para seleccionar todos los registros impares, la sintaxis es idéntica en ambos casos, solo que utilizaríamos el operador de desigualdad <> en lugar de =.
+
+
+75. ¿Cómo impedir registros duplicados al hacer una consulta?
+Utilizando la sentencia DISTINCT en combinación con SELECT o creando una clave única para esa tabla.
+
+
+76. ¿Cómo insertar muchas filas en una tabla?
+Utilizando la sentencia INSERT INTO en combinación con VALUES. La sintaxis es:
+
+INSERT INTO table_name
+VALUES (value_1, value_2, ...),
+       (value_3, value_4, ...),
+       (value_5, value_6, ...),
+       ...;
+
+
+77. ¿Cómo buscar el enésimo valor más alto de una columna de una tabla?
+Utilizando la cláusula OFFSET. Por ejemplo, para buscar el 6.º valor más alto de una columna, utilizaríamos la siguiente sintaxis:
+
+SELECT * FROM table_name
+ORDER BY column_name DESC
+LIMIT 1
+OFFSET 5;
+
+
+78. ¿Cómo buscar los valores de una columna de texto de una tabla que empiezan por una letra determinada?
+Utilizando el operador LIKE en combinación con los comodines % y _. Por ejemplo, tenemos que buscar todos los apellidos de una tabla que empiecen por "A". La consulta es:
+
+SELECT * FROM table_name
+WHERE surname LIKE 'A_';
+
+Aquí suponemos que un apellido debe contener al menos dos letras. Sin esta suposición (es decir, que un apellido pueda ser solo A), la consulta es la siguiente:
+
+SELECT * FROM table_name
+WHERE surname LIKE 'A%';
+
+
+79. ¿Cómo buscar el último id de una tabla?
+Utilizando la función MAX(). De lo contrario, en muchas versiones de SQL, podemos utilizar la siguiente sintaxis:
+
+SELECT id
+FROM table_name
+ORDER BY id DESC
+LIMIT 1;
+
+o en Microsoft SQL Server:
+
+SELECT TOP 1 id
+FROM table_name
+ORDER BY id DESC
+
+
+80. ¿Cómo seleccionar filas aleatorias de una tabla?
+Utilizando la función RAND() en combinación con ORDER BY y LIMIT. En algunas versiones de SQL, como PostgreSQL, se llama RANDOM(). Por ejemplo, el código siguiente devolverá cinco filas aleatorias de una tabla en MySQL:
+
+SELECT * FROM table_name
+ORDER BY RAND()
+LIMIT 5;
+
 
 
 
